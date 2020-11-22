@@ -1,39 +1,40 @@
 // array of questions for user
 const inquirer = require('inquirer')
-const fs = require('fs')
-//const questions = 
+const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown');
+// 
 //sections entitled Description, Table of Contents, Installation, Usage, 
 //License, Contributing, Tests, and Questions
-inquirer.prompt([
-       {
+const questions = [
+      {
+      type: 'input',
+      name: 'projectTitle',
+      message: 'Enter the Name of your Project',
+      },
+      {
         type: 'input',
-        name: 'Name',
+        name: 'name',
         message: 'Enter you Name',
       },
       {
         type: 'input',
-        name: 'Course Name',
+        name: 'courseName',
         message: 'Enter your course name',
       },
       {
         type: 'input',
-        name: 'Course code',
+        name: 'courseCode',
         message: 'Enter your Course Description',
       },
       {
         type: 'input',
-        name: 'GitHubID',
+        name: 'gitHubId',
         message: 'Enter your GitHub Repsitory Name',
       },
       {
         type: 'input',
-        name: 'Descirption',
+        name: 'descirption',
         message: 'input the Application Description',
-      },
-      {
-        type: 'input',
-        name: 'Table',
-        message: 'input the Table of Contents',
       },
       {
         type: 'input',
@@ -43,31 +44,50 @@ inquirer.prompt([
       {
         type: 'input',
         name: 'usage',
-        message: 'Descript the usage of your application',
+        message: 'Describe the usage of your application',
       },
       {
-        type: 'input',
-        name: 'License',
+        type: 'list',
+        name: 'license',
         message: 'Input your lincense information',
+        choices: [
+            'MIT Lincense',
+            'No Lincense',
+        ]
       },
       {
         type: 'input',
-        name: 'tests',
-        message: '',
+        name: 'contributing',
+        message: 'Enter addtional contributors to this project',
       },
-    ]).then((response) => {
-      console.log(response)
-    })
+      {
+        type: 'input',
+        name: 'email',
+        message: 'Enter your email address for questions',
+      },
+    ];
   
 
 // function to write README file
-//function writeToFile(fileName, data) {
-//}
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName,data, (err) => {
+    if(err) {
+      throw err;
+    }
+    console.log('File was created');
+  });
+}
+
+
 
 // function to initialize program
-//function init() {
 
-//}
+function init(){
+  inquirer.prompt(questions).then((answers)=> {
+    const response = generateMarkdown(answers);
+    console.log(answers);
+    writeToFile("README.md", response);
+  })
+};
 
-// function call to initialize program
-//init();
+init();
