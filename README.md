@@ -1,12 +1,10 @@
-// function to generate markdown for README
-function generateMarkdown(response) {
-  return `
-# ${response.projectTitle}
-## ${response.name}
-## ${response.courseName}
-## ${response.courseCode}
-## ${response.gitHubId}
-## ${response.gitHubRepo}
+
+# 09HW_NodeJS_ReadMe_Gen
+## Jonathan Gilbert
+## UNH Coding Bootcamp FullStack Program
+## UNH-POR-FSF-PT-09-2020-U-
+## JGilb28-7
+## https://github.com/JGilb28-7/09HW_NodeJS_ReadMe_Gen.git*/
 ### Resources
 -[Video Software used is https://www.cockos.com/licecap/]
 -[Add Resources here]
@@ -23,24 +21,20 @@ function generateMarkdown(response) {
 -[License](#license)
 
 ### Description
-${response.descirption}
+This application allows the user to Generate a README.md file
 
 ### Installation
-${response.install}
+undefined
 
 ### Application Usage
-${response.usage}
+Usage of the is application is to streamline and create a standard quality README.md file
 
 ### Project Conributors
-${response.contributing}
+None
 
 ### Application Questions
-GitHub:[${response.gitHubId}]
-Email:[${response.email}]
+GitHub:[JGilb28-7]
+Email:[JGilbert@gmail.com]
 
 ### License Information
-${response.license}
-`;
-}
-
-module.exports = generateMarkdown;
+No License

@@ -1,10 +1,12 @@
 // array of questions for user
 const inquirer = require('inquirer')
 const fs = require('fs');
+//this creates the file link 
 const generateMarkdown = require('./utils/generateMarkdown');
-// 
-//sections entitled Description, Table of Contents, Installation, Usage, 
-//License, Contributing, Tests, and Questions
+
+/*from Dev file readme - needs sections entitled Description, Table of Contents, Installation, Usage, 
+License, Contributing, Tests, and Questions*/
+
 const questions = [
       {
       type: 'input',
@@ -14,7 +16,7 @@ const questions = [
       {
         type: 'input',
         name: 'name',
-        message: 'Enter you Name',
+        message: 'Enter your Name',
       },
       {
         type: 'input',
@@ -29,6 +31,11 @@ const questions = [
       {
         type: 'input',
         name: 'gitHubId',
+        message: 'Enter your GitHub Id',
+      },
+      {
+        type: 'input',
+        name: 'gitHubRepo',
         message: 'Enter your GitHub Repsitory Name',
       },
       {
@@ -51,8 +58,8 @@ const questions = [
         name: 'license',
         message: 'Input your lincense information',
         choices: [
-            'MIT Lincense',
-            'No Lincense',
+            'MIT License',
+            'No License',
         ]
       },
       {
@@ -68,7 +75,7 @@ const questions = [
     ];
   
 
-// function to write README file
+// function to write README file used the office hours demo from 11.17.2020
 function writeToFile(fileName, data) {
   fs.writeFile(fileName,data, (err) => {
     if(err) {
@@ -77,8 +84,6 @@ function writeToFile(fileName, data) {
     console.log('File was created');
   });
 }
-
-
 
 // function to initialize program
 
