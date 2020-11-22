@@ -8,7 +8,8 @@
 ### Resources
 -[Video Software used is https://www.cockos.com/licecap/]
 -[Add Resources here]
-
+## Video
+![README_Gen](https://user-images.githubusercontent.com/30843888/99892388-693cfb80-2c42-11eb-9a09-458864e65435.gif)
 
 ### supporting .img or .png
 
